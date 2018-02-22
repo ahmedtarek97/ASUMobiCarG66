@@ -1,9 +1,9 @@
 # ASUMobiCarG66
 Smart Car Project 
 # Team Members
-- Ahmed Abdel Salam
+- Ahmed Abdel Salam Sayed
 - Ahmed Sherif Mahmoud 
-- Ahmed Talaat 
+- Ahmed Talaat Abdel Gayed
 - Ahmed Khaled Salah EL Din
 - Ahmed Sayed Galal 
 - Ahmed Sayed Ali 
