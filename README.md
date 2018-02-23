@@ -7,7 +7,7 @@ Smart Car Project
 - Ahmed Khaled Salah EL Din
 - Ahmed Sayed Galal 
 - Ahmed Sayed Ali 
-- Ahmed Mahmoud Hamed 
+- Ahmed Mahmoud Hamed Mahmoud EL Sherif
 - Ahmed Ali Mohamed 
 - Ahmed Tarek Hussin
 - Ahmed Essam EL Din Mohamed Ahmed 
