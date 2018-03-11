@@ -11,10 +11,12 @@ int in4 = 4;
 void setup() 
 {
  Serial.begin(9600);
- pinMode(motorPin1,OUTPUT); 
- pinMode(motorPin2,OUTPUT); 
- pinMode(motorPin3,OUTPUT); 
- pinMode(motorPin4,OUTPUT); 
+  pinMode(enA ,OUTPUT);
+  pinMode(in1 ,OUTPUT);
+  pinMode(in2 ,OUTPUT);
+  pinMode(enB ,OUTPUT);
+  pinMode(in3 ,OUTPUT);
+  pinMode(in4 ,OUTPUT);
 }
 
 void loop() 
