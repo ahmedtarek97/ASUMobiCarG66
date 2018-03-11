@@ -10,7 +10,7 @@ int in4 = 4;
 
 void setup() 
 {
- Serial.begin(9600);
+  Serial.begin(9600);
   pinMode(enA ,OUTPUT);
   pinMode(in1 ,OUTPUT);
   pinMode(in2 ,OUTPUT);
@@ -19,41 +19,42 @@ void setup()
   pinMode(in4 ,OUTPUT);
 }
 
-void loop() 
-{
- 
-  if (Serial.available() > 0) 
-{ 
- data = Serial.read(); 
-   if(data == '1')        //move forwards 
- { 
-   digitalWrite(motorPin1,HIGH); 
-   digitalWrite(motorPin2,LOW); 
-   digitalWrite(motorPin3,HIGH); 
-   digitalWrite(motorPin4,LOW); 
- } 
- 
-   else if (data == '2')       //move backwards 
- { 
-   digitalWrite(motorPin1,LOW); 
-   digitalWrite(motorPin2,HIGH); 
-   digitalWrite(motorPin3,LOW); 
-   digitalWrite(motorPin4,HIGH); 
- } 
-   else if (data == '3')       //move forward left 
- { 
-   digitalWrite(motorPin1,LOW); 
-   digitalWrite(motorPin2,HIGH); 
-   digitalWrite(motorPin3,HIGH); 
-   digitalWrite(motorPin4,LOW); 
- } 
-   else if (data == '4')       //move forward right 
- { 
-   digitalWrite(motorPin1,HIGH); 
-   digitalWrite(motorPin2,LOW); 
-   digitalWrite(motorPin3,LOW); 
-   digitalWrite(motorPin4,HIGH); 
- } 
+void loop() {
+  if (Serial.available() > 0)
+  {
+    int data;
+    data = Serial.read();
+    Serial.print(data);
 
+    switch (data)
+    {
+
+      case '1': //FORWARD
+        analogWrite(enA,255);
+        analogWrite(enB,255);
+        digitalWrite(in1,LOW);
+        digitalWrite(in2,HIGH);
+        digitalWrite(in3,LOW);
+        digitalWrite(in4,HIGH);
+        break;
+
+      case '2': //REVERSE
+        analogWrite(enA,255);
+        analogWrite(enB,255);
+        digitalWrite(in1,LOW);
+        digitalWrite(in2,HIGH);
+        digitalWrite(in3,LOW);
+        digitalWrite(in4,HIGH);
+        break;
+
+      default: //If bluetooth module receives any value not listed above, both motors turn off
+        analogWrite(enA,0);
+        analogWrite(enB,0);
+        digitalWrite(in1,LOW);
+        digitalWrite(in2,LOW);
+        digitalWrite(in3,LOW);
+        digitalWrite(in4,LOW);
+    }
   }
-}
+ 
+
