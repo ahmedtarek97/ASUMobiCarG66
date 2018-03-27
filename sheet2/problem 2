@@ -1,0 +1,37 @@
+#define PIN 13
+#define pls 2
+#define mns 3
+int x=1;
+
+void setup() 
+  {
+    pinMode(PIN, OUTPUT); 
+    attachInterrupt(digitalPinToInterrupt(pls), zyada, RISING);
+     attachInterrupt(digitalPinToInterrupt(mns), na2s, RISING);
+  }
+void loop() 
+  {
+    int state = 0;
+    
+  while(1) {
+    if(state == 0) {
+      digitalWrite(PIN , LOW);
+      state = 1;
+    } 
+    else {
+      digitalWrite (PIN , HIGH) ;
+      state = 0;
+    }
+    float  t=x*1000/2;
+    delay(t);
+  }}
+void zyada ()
+{
+if(x<10)
+{x++;}  
+}
+void na2s ()
+{
+  if (x>1)
+  {x--;}
+}
