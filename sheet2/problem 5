@@ -1,0 +1,18 @@
+int i;
+int sensorValue;
+void setup () 
+{  
+  for(i=0;i<10;i++)
+  {pinMode(i , OUTPUT);}
+}
+void loop ()
+{
+  sensorValue = analogRead(3);  
+   for(i=0;i<10;i++)
+  {
+  digitalWrite(i, HIGH);      
+  delay(sensorValue);    
+  digitalWrite(i, LOW);
+  delay(sensorValue);
+ } 
+}
