@@ -1,0 +1,29 @@
+int i;
+int sensorValue1;
+int sensorValue2;
+int sensorValue3;
+void setup () 
+{  
+    pinMode(3 , OUTPUT);
+    pinMode(2 , OUTPUT);
+    pinMode(1 , OUTPUT);
+}
+void loop ()
+{
+  sensorValue1 = analogRead(9);  
+  sensorValue2 = analogRead(10);  
+  sensorValue3 = analogRead(11);  
+  if(sensorValue1>sensorValue2)
+  {
+    if(sensorValue1>sensorValue3)
+    {
+       digitalWrite(1, HIGH);
+     }
+   }
+   else if (sensorValue2>sensorValue3)
+   {
+     digitalWrite(2, HIGH);
+    }
+    else
+    { digitalWrite(3, HIGH);}
+}
