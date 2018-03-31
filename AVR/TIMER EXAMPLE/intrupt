@@ -1,0 +1,32 @@
+#define F_CPU 1000000UL
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+#define sbi(x,y) x |= _BV(y)
+#define cbi(x,y) x &= ~(_BV(y))
+#define tbi(x,y) x ^= _BV(y)
+#define is_high(x,y) (x & _BV(y) == _BV(y))
+#define is_low(x,y) ((x & _BV(y)) == 0)
+
+
+
+
+
+void main(void)
+{
+	DDRA=0b00000001;
+	sei();
+	TCCR1B |=  1<<CS10  | 1<<CS11  |  1<<WGM12;
+	TIMSK |= 1<<OCIE1A;
+	OCR1A=15624;
+
+	while(1==1)
+	{
+		
+	}
+}
+ISR(vector)
+{
+
+	tbi(PORTA,PB0);
+}
