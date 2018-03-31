@@ -1,0 +1,50 @@
+#include <avr/io.h>
+#include <avr/interrupt.h>
+
+#define F_CPU 4000000UL
+#include <util/delay.h>
+#define DataPort	PORTC
+#define DataDDR		DDRC
+
+ISR(INT0_vect)
+{
+	unsigned char i, temp;
+	
+	_delay_ms(500); 
+	
+	temp = DataPort;	
+	
+	for(i = 0; i<5; i++)
+	{
+		DataPort = 0x00;
+		_delay_ms(500);	// Wait 5 seconds
+		DataPort = 0xFF;
+		_delay_ms(500);	// Wait 5 seconds
+	}
+	
+	DataPort = temp;	
+}
+
+int main(void)
+{
+	DDRD = 1<<PD2;		
+	PORTD = 1<<PD2;		
+	
+	DataDDR = 0xFF;		
+	DataPort = 0x01;
+	
+	GICR = 1<<INT0;					
+	MCUCR = 1<<ISC01 | 1<<ISC00;	
+	
+	sei();			
+	
+	while(1)
+	{
+		if(DataPort >= 0x80)
+		DataPort = 1;
+		else
+		DataPort = DataPort << 1;	
+		
+		_delay_ms(500);	
+	}
+}
