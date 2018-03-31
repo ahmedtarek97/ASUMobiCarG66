@@ -1,4 +1,4 @@
-int t;
+int x;
 void setup() {
 pinMode(2,OUTPUT);
 pinMode(3,OUTPUT);
@@ -12,7 +12,7 @@ pinMode(9,OUTPUT);
 
 void loop() {
  for(int j=0;j<256;j++){
-    t = j ;
+    x = j ;
     if(t>128){
       digitalWrite(9,HIGH) ;
       t = t - 128 ;
