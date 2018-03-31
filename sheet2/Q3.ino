@@ -15,49 +15,49 @@ void loop() {
     x = j ;
     if(t>128){
       digitalWrite(9,HIGH) ;
-      t = t - 128 ;
+      x = x - 128 ;
     }else{
       digitalWrite(9,LOW) ;
     }
-    if(t>64){
+    if(x>64){
       digitalWrite(8,HIGH) ;
-      t = t - 64 ;
+      x = x - 64 ;
     }else{
       digitalWrite(8,LOW) ;
     }
-    if(t>32){
+    if(x>32){
       digitalWrite(7,HIGH) ;
-      t = t - 32 ;
+      x = x - 32 ;
     }else{
       digitalWrite(7,LOW) ;
     }
-    if(t>16){
+    if(x>16){
       digitalWrite(6,HIGH) ;
-      t = t - 16 ;
+      x = x - 16 ;
     }else{
       digitalWrite(6,LOW) ;
     }
-    if(t>8){
+    if(x>8){
       digitalWrite(5,HIGH) ;
-      t = t - 8 ;
+      x = x - 8 ;
     }else{
       digitalWrite(5,LOW) ;
     }
-    if(t>4){
+    if(x>4){
       digitalWrite(4,HIGH) ;
-      t = t - 4 ;
+      x = x - 4 ;
     }else{
       digitalWrite(4,LOW) ;
     }
-    if(t>2){
+    if(x>2){
       digitalWrite(3,HIGH) ;
-      t = t - 2 ;
+      x = x - 2 ;
     }else{
       digitalWrite(3,LOW) ;
     }
-    if(t>1){
+    if(x>1){
       digitalWrite(2,HIGH) ;
-      t = t - 1 ;
+      x = x - 1 ;
     }else{
       digitalWrite(2,LOW) ;
     }
