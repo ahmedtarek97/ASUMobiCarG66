@@ -29,7 +29,7 @@ void loop() {
   distance = (duration / 2) * 0.0343;
   
   // Send results to Serial Monitor
- 
+
   Serial.print("Distance = ");
   if (distance >= 400 || distance <= 2) {
      Serial.println("Out of range");
