@@ -3,12 +3,17 @@
 int inputPins[] = {2,3,4,5}; 
 int ledPins[] = {10,11,12,13};
 void setup()
-{ for(int index = 0; index < 4; index++)
+{ for(int index = 0; index < 4 ; index++)
 { pinMode(ledPins[index], OUTPUT); 
+
 pinMode(inputPins[index], INPUT);
 digitalWrite(inputPins[index],HIGH); 
-//Enable pull-up resistors at input } }
-void loop() { for(int index = 0; index < 4; index++) { 
+
+//
+enable pull-up resistors at inputs
+} }
+void loop() { for(int index = 0; index < 4; index++)
+{ 
 int val = digitalRead(inputPins[index]); 
 digitalWrite(ledPins[index], val); 
 }
