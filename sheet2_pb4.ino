@@ -1,0 +1,28 @@
+const int ledPin = 13;  
+int sensorValue;
+int i=3; 
+ 
+void setup () 
+{  
+  pinMode(ledPin, OUTPUT);
+  attachInterrupt(digitalPinToInterrupt(2), hello , RISING);
+}
+void loop ()
+{
+  
+ } 
+void hello()
+{
+ switch (i){
+  case'3':i=5;
+  case'5':i=6;
+  case'6':i=9;
+  case'9':i=10;
+  case'10':i=11;
+  case'11':i=3;
+  }
+  sensorValue = analogRead(i);   
+  digitalWrite(ledPin, HIGH);      
+  delay(sensorValue);    
+  digitalWrite(ledPin, LOW);
+}
