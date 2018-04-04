@@ -1,7 +1,7 @@
 #include "NewPing.h"
  
 // Hook up HC-SR04 with Trig to Arduino Pin 10, Echo to Arduino pin 13
-// Maximum Distance is 400 cm
+// Maximum Distance is 400 centimeters
  
 #define TRIGGER_PIN  10
 #define ECHO_PIN     13
