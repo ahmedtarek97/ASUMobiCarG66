@@ -90,3 +90,18 @@ Serial.println();
 }
 //https://www.youtube.com/watch?v=wbrt2ClgZik
 //this url for more information and to understand the code
+
+//Hardware Required :
+
+- Arduino Board
+- Motor Shield (Adafruit)
+- QTR-8RC Reflectance Sensor Array (Pololu)
+- DC Motor x2
+- Wheel x2
+- Bovine Wheel
+- Chassis plate
+- Battery 9V
+- Battery Buckle
+- Wires
+- Button
+- Glue Gun
