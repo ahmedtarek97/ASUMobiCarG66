@@ -1,0 +1,21 @@
+
+#include <avr/io.h>
+#include <util/delay.h>
+ 
+#include "lcd.h"
+ 
+int main(void)
+{
+    lcd_init(LCD_DISP_ON_CURSOR); 
+                                 
+                                 
+    while(1)                    
+    {
+        lcd_clrscr();            
+        lcd_home();             
+        lcd_puts("hello");       
+        lcd_gotoxy(0,1);         
+        lcd_puts("Project Control");  
+        _delay_ms(50);           
+    }
+}
