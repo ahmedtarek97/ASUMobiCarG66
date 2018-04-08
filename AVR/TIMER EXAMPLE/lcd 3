@@ -1,0 +1,32 @@
+
+#include <delay.h>
+#include <alcd.h>
+
+void main(void)
+{
+
+PORTD=0x00;
+DDRD=0x00;
+
+TCCR0=0x00;
+TCNT0=0x00;
+OCR0=0x00;
+
+
+
+lcd_init(16);
+while (1)
+ {
+ lcd_gotoxy(0,0);
+ delay_ms(10);
+
+ lcd_puts("HELLO");
+ delay_ms(10);
+
+ lcd_gotoxy(0,1);
+ delay_ms(10);
+
+ lcd_puts("WORLD");
+ delay_ms(10);
+ }
+}
