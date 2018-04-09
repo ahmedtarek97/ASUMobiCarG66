@@ -1,0 +1,86 @@
+#include 
+#include 
+
+int cycle_count = 0; 	// Counts up to 1 second
+int second_count = 0; 	// Counts number of seconds
+int secondary = 0;		// Indicates if in 5 minute countdown
+
+									// Timer/Counter 0 ISR
+
+ISR(TIMER0_OVF_vect) 
+{
+	TCNT0 = 6; 						// Set reload number to 6 which means timer ISR
+									// counts up to 256 - 6 = 250 per ISR
+	
+	++cycle_count;
+	
+	
+	if (cycle_count == 2500)		// Increment second count per 2500 overflow cycles
+	{
+		cycle_count = 0;
+		++second_count;
+	
+	}
+}
+
+int main (void)
+{
+	DDRA = 0x1F;					// Set 5 inputs on LSB and rest as outputs
+	
+	PORTA = 0x04;					// Pull all and I/O low (active high) and let led Pin A2 be high for
+									// red off status indicator LED								
+
+	
+	TIMSK = 0x01;						
+	#asm("sei")		
+	
+	while(1)
+	{
+		if (PINA | 0x20)			// If pin 5 of port A is high (ON/RESET button) start timer
+		{
+			second_count = 0;		// Reset second_count back to zero
+			secondary = 0;			// Deactivate secondary (5 min countdown) status
+			TCCR0 = 0x03;			// Activate and prescale to sysck/64
+			
+			PORTA = PORTA | 0x11; 	// Turn relay and green status LED on
+			
+		}
+		
+		while ((second_count == 900) & (second_count <= 902))	// After 15 minutes (900 seconds ) has elapsed
+		{							
+			
+			if (PINA | 0x20)					// Reset if triggered
+			{
+			second_count = 0;		
+			secondary = 0;
+			TCCR0 = 0x03;
+			
+			PORTA = PORTA | 0x11; 	
+			}
+			
+			
+			PORTA = PORTA | 0x0A; 			
+			if (second_count > 901)
+			{
+				PORTA = PORTA ^ 0x02;			
+			}
+			
+			secondary = 1;					
+			second_count = 0;				
+					
+		}
+		
+		while ((second_count >= 300) & (secondary == 1))
+			{
+				PORTA = PORTA | 0x02;
+				
+				if (second_count >=305)
+				{
+					PORTA = 0x04; 					
+					TCCR0 = 0x00; 			
+					second_count = 0;		
+				}
+			}
+	
+	}
+}
