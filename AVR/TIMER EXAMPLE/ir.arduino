@@ -1,0 +1,51 @@
+int IRpin = A0;               // IR photodiode on analog pin A0
+int IRemitter = 2;            // IR emitter LED on digital pin 2
+int ambientIR;                // variable to store the IR coming from the ambient
+int obstacleIR;               // variable to store the IR coming from the object
+int value[10];                // variable to store the IR values
+int distance;               
+void setup(){
+  Serial.begin(9600);         // initializing Serial monitor
+  pinMode(IRemitter,OUTPUT);  // IR emitter LED on digital pin 2
+  digitalWrite(IRemitter,LOW);// setup IR LED as off
+  pinMode(11,OUTPUT);         // buzzer in digital pin 11
+}
+
+void loop(){
+  distance = readIR(5);       
+  Serial.println(distance);  
+
+int readIR(int times){
+  for(int x=0;x<times;x++){     
+    digitalWrite(IRemitter,LOW);           
+    delay(1);                                             
+    ambientIR = analogRead(IRpin);  
+    digitalWrite(IRemitter,HIGH);          // turning the IR LEDs on to read the IR coming from the obstacle
+    delay(1);                                          
+    obstacleIR = analogRead(IRpin);  
+    value[x] = ambientIR-obstacleIR;  
+  }
+ 
+  for(int x=0;x<times;x++){        
+    distance+=value[x];
+  }
+  return(distance/times);           
+}
+
+
+void buzzer(){
+  if (distance>1){
+    if(distance>100){ 
+      digitalWrite(11,HIGH);
+    }
+    else{ 
+      digitalWrite(11,HIGH);
+      delay(150-distance);  
+      digitalWrite(11,LOW);
+      delay(150-distance); 
+    }
+  }
+  else{  // off if there is no obstacle
+    digitalWrite(11,LOW);
+  }
+}
