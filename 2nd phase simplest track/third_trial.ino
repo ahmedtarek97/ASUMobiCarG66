@@ -51,10 +51,10 @@ else if(data1==LOW&&data2==HIGH&&data3==LOW)//the middle sees black while the ot
         //FORWARD
         digitalWrite(in1,HIGH);
         digitalWrite(in2,LOW);
-        analogWrite(enA,125);
+        analogWrite(enA,100);
         digitalWrite(in3,HIGH); 
         digitalWrite(in4,LOW);
-        analogWrite(enB,125);
+        analogWrite(enB,100);
   }
 
 else if(data1==LOW&&data2==HIGH&&data3==HIGH)//the middle and left see black while the right sees others white
@@ -75,7 +75,7 @@ else if(data1==LOW&&data2==LOW&&data3==LOW)//the middle and right see black whil
         analogWrite(enA,0);
         digitalWrite(in3,HIGH);
         digitalWrite(in4,LOW);
-        analogWrite(enB,250);
+        analogWrite(enB,100);
      
   }
 
@@ -91,6 +91,15 @@ else if(data1==LOW&&data2==LOW&&data3==LOW)//the middle and right see black whil
   }
 
  else if(data1==HIGH&&data2==LOW&&data3==LOW)//the middle and left see white while the right sees  black
+ {
+  // FORWARD RIGHT
+        digitalWrite(in1,LOW);
+        digitalWrite(in2,LOW);
+        analogWrite(enA,0);
+        digitalWrite(in3,HIGH);
+        digitalWrite(in4,LOW);
+        analogWrite(enB,100);
+ }
   
       /*  //REVERSE
         digitalWrite(in1,LOW);
