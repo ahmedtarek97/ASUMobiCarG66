@@ -47,7 +47,7 @@ void loop() {
       digitalWrite(4,HIGH) ;
       x = x - 4 ;
     }else{
-      digitalWrite(4,LOW) ;
+      digitalWrite(4,0) ;
     }
     if(x>2){
       digitalWrite(3,HIGH) ;
