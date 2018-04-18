@@ -2,16 +2,19 @@
 #include <avr/interrupt.h>
  
 #define LEDPIN 2
- 
+ ISR(TIMER1_COMPA_vect)
+{
+    digitalWrite(LEDPIN, !digitalRead(LEDPIN));
+}
+
 void setup()
 {
     pinMode(LEDPIN, OUTPUT);
  
     // initialize Timer1
-    cli();          // disable global interrupts
-    TCCR1A = 0;     // set entire TCCR1A register to 0
-    TCCR1B = 0;     // same for TCCR1B
- 
+    cli();          
+    TCCR1A = 0;     
+    TCCR1B = 0;     
     OCR1A = 15624;
 
     TCCR1B |= (1 << WGM12);
@@ -25,9 +28,4 @@ void setup()
 void loop()
 {
   
-}
- 
-ISR(TIMER1_COMPA_vect)
-{
-    digitalWrite(LEDPIN, !digitalRead(LEDPIN));
 }
