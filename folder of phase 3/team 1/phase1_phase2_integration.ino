@@ -1,3 +1,4 @@
+//this code in case the app can not differentiate between different phases internally 
 char phase;//to get the phase
 char data;
 
