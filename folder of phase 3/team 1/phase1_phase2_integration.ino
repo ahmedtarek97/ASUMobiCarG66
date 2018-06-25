@@ -194,7 +194,7 @@ void loop()
       //we can add buzzer here
     }
     //phase 1
-    if (phase == 'A') //waiting to know which character for driving in phase 1//this if statement will make the car move according to phase 1
+    if (phase == 'P') //waiting to know which character for driving in phase 1//this if statement will make the car move according to phase 1
     {
       delay(2000);
       while (1)
@@ -222,19 +222,19 @@ void loop()
               Left(speed);
               break;
 
-            case 'G': //FORWARD LEFT
+            case 'Q': //FORWARD LEFT
               ForwardLeft(speed);
               break;
 
-            case 'I':  // FORWARD RIGHT
+            case 'E':  // FORWARD RIGHT
               ForwardRight(speed);
               break;
 
-            case 'H': //BACKWARD LEFT
+            case 'Z': //BACKWARD LEFT
               BackwardLeft(speed);
               break;
 
-            case 'J': //BACKWARD RIGHT
+            case 'C': //BACKWARD RIGHT
               BackwardRight(speed);
               break;
 
@@ -244,7 +244,7 @@ void loop()
           }
 
         }
-        if (data == 'X');
+        if (data == 'N');
         {
           break;
         }
@@ -263,7 +263,7 @@ void loop()
           data = Serial.read();
           Serial.print(data);
         }
-        if (data == 'X');
+        if (data == 'N');
         {
           break;
         }
