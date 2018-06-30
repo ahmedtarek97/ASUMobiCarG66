@@ -276,16 +276,19 @@ void loop()
       if (incomingByte == 'M')
       {
         //send to function of distance
+        Serial.println("the car is moving ahead ## centimeters");
         break;
       }
       else if (incomingByte == 'D')
       {
         //send to function of degrees
+        Serial.println("the car is moving by ## degrees");
         break;
       }
       else if (incomingByte == 'X')
       {
         //send to the function of shapes
+        Serial.println("The car is moving according to the shapes");
         break;
       }
       /////////////////////////////////
