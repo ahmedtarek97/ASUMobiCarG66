@@ -1,3 +1,4 @@
+//the last code 
 char phase;//to get the phase
 char dataChar;
 int flag;
