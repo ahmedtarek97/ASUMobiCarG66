@@ -1,0 +1,12 @@
+ void draw()
+ {
+   Rec(200,200);
+   delay (25000);
+   circle ();
+   delay (25000);
+   infinityshape();
+   delay (25000);
+ }
+
+
+ 
