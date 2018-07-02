@@ -1,3 +1,5 @@
+//final code to be tried
+
 char phase;//to get the phase
 char dataChar;
 int flag;
