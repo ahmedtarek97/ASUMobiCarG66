@@ -1,5 +1,5 @@
 # ASUMobiCarG66
-Smart Car Project 
+Smart Car Project
 # Team Members
 - Ahmed Abdel Salam Sayed
 - Ahmed Sherif Mahmoud 
@@ -11,5 +11,7 @@ Smart Car Project
 - Ahmed Ali Mohamed 
 - Ahmed Tarek Hussin
 - Ahmed Essam EL Din Mohamed Ahmed 
-## Car Video 
-https://www.youtube.com/watch?v=FLEpz0NxB3A
+## Car Video (Avoid obstacles)
+https://www.youtube.com/watch?v=eO3J1CVVM0M
+## Car Video (Line tracking)
+https://www.youtube.com/watch?v=YKVbSyOhMPY
