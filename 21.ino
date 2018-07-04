@@ -116,6 +116,6 @@ else if(data1==LOW&&data2==LOW&&data3==HIGH)//the middle and right see black whi
         analogWrite(enA,0);
         digitalWrite(in3,LOW);
         digitalWrite(in4,HIGH);
-        analogWrite(enB,250);*/
+        analogWrite(enB,250);
 }
 
