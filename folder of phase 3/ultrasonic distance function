@@ -1,0 +1,24 @@
+long ultrasonic (int echo ,int triger ){
+ long distance ;
+ long duration; 
+  pinMode (triger , OUTPUT);
+  
+  pinMode (echo , INPUT );
+  Serial.begin (9600);
+  while (1)
+  {
+  digitalWrite(triger , LOW);
+delayMicroseconds(2);
+// Sets the trigPin on HIGH state for 10 micro seconds
+digitalWrite(triger, HIGH);
+delayMicroseconds(10);
+digitalWrite(triger, LOW);
+// Reads the echoPin, returns the sound wave travel time in microseconds
+duration = pulseIn(echo, HIGH);
+// Calculating the distance
+distance= duration*0.034/2;
+// Prints the distance on the Serial Monitor
+Serial.print("Distance: ");
+Serial.println(distance);  
+  return distance ;  
+  };
