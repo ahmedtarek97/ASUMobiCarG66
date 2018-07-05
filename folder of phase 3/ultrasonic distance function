@@ -5,8 +5,8 @@ long ultrasonic (int echo ,int triger ){
   
   pinMode (echo , INPUT );
   Serial.begin (9600);
-  while (1)
-  {
+  
+  
   digitalWrite(triger , LOW);
 delayMicroseconds(2);
 // Sets the trigPin on HIGH state for 10 micro seconds
@@ -21,4 +21,4 @@ distance= duration*0.034/2;
 Serial.print("Distance: ");
 Serial.println(distance);  
   return distance ;  
-  };
+  }
